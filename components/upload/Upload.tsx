@@ -42,6 +42,7 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
     type,
     children,
     style,
+    itemRender,
   } = props;
 
   const [getFileList, setFileList] = useSyncState<Array<UploadFile>>(
@@ -242,6 +243,7 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
         locale={{ ...locale, ...propLocale }}
         isImageUrl={isImageUrl}
         progress={progress}
+        itemRender={itemRender}
       />
     );
   };

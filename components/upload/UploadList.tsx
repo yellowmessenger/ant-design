@@ -36,6 +36,7 @@ const InternalUploadList: React.ForwardRefRenderFunction<unknown, UploadListProp
     removeIcon: customRemoveIcon,
     downloadIcon: customDownloadIcon,
     progress: progressProps,
+    itemRender,
   },
   ref,
 ) => {
@@ -316,15 +317,17 @@ const InternalUploadList: React.ForwardRefRenderFunction<unknown, UploadListProp
     const listContainerNameClass = classNames({
       [`${prefixCls}-list-picture-card-container`]: listType === 'picture-card',
     });
+    const item =
+      file.status === 'error' ? (
+        <Tooltip title={message} getPopupContainer={node => node.parentNode as HTMLElement}>
+          {dom}
+        </Tooltip>
+      ) : (
+        <span>{dom}</span>
+      );
     return (
       <div key={file.uid} className={listContainerNameClass}>
-        {file.status === 'error' ? (
-          <Tooltip title={message} getPopupContainer={node => node.parentNode as HTMLElement}>
-            {dom}
-          </Tooltip>
-        ) : (
-          <span>{dom}</span>
-        )}
+        {itemRender ? itemRender(file, items) : item}
       </div>
     );
   });
