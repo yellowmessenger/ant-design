@@ -882,15 +882,18 @@ describe('Upload List', () => {
   });
 
   it('itemRender', () => {
-    const itemRender = (file, currFileList) => {
+    const itemRender = (originNode, file, currFileList) => {
       const { name, status, uid, url } = file;
       const index = currFileList.indexOf(file);
       return (
-        <span className="custom-item-render">
-          {`uid:${uid} name: ${name} status: ${status} url: ${url}  ${index + 1}/${
-            currFileList.length
-          }`}
-        </span>
+        <div className="custom-item-render">
+          {originNode}
+          <span>
+            {`uid:${uid} name: ${name} status: ${status} url: ${url}  ${index + 1}/${
+              currFileList.length
+            }`}
+          </span>
+        </div>
       );
     };
     const wrapper = mount(<UploadList locale={{}} items={fileList} itemRender={itemRender} />);
