@@ -213,6 +213,8 @@ module.exports = {
 };
 ```
 
+> Work with `@import '~antd/dist/antd.less';`.
+
 ## Related Articles
 
 - [Using Ant Design in Sass-Styled Webpack Projects with `antd-scss-theme-plugin`](https://intoli.com/blog/antd-scss-theme-plugin/)
