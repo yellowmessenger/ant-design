@@ -1,0 +1,13 @@
+{
+  "plugins": [
+    [
+      "import",
+      {
+        "libraryName": "@ant-design/icons",
+        "libraryDirectory": "icons/lib",
+        "camel2DashComponentName": false
+      },
+      "@ant-design/icons"
+    ]
+  ]
+}
