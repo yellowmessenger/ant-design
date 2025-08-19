@@ -106,6 +106,34 @@ module.exports = {
       type: 'javascript/auto',
     });
 
+    // Transpile problematic packages that contain modern JavaScript syntax
+    config.module.rules.push({
+      test: /\.js$/,
+      include: [
+        /node_modules\/@stackblitz\/sdk/,
+        /node_modules\/react-draggable/,
+        /node_modules\/react-resizable/,
+      ],
+      use: {
+        loader: 'babel-loader',
+        options: {
+          presets: [
+            [
+              '@babel/preset-env',
+              {
+                useBuiltIns: 'usage',
+                corejs: 3,
+              },
+            ],
+          ],
+          plugins: [
+            '@babel/plugin-proposal-optional-chaining',
+            '@babel/plugin-proposal-nullish-coalescing-operator',
+          ],
+        },
+      },
+    });
+
     config.plugins.push(
       new webpack.DefinePlugin({
         antdReproduceVersion: JSON.stringify(version),
