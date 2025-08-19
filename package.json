@@ -2,6 +2,10 @@
   "name": "ym-antd",
   "version": "4.6.1030",
   "description": "An enterprise-class UI design language and React components implementation",
+  "engines": {
+    "node": "22.14.0",
+    "npm": "10.9.2"
+  },
   "title": "Ant Design",
   "keywords": [
     "ant",
