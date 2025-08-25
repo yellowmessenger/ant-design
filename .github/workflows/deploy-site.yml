@@ -12,10 +12,6 @@ jobs:
     steps:
     - name: checkout
       uses: actions/checkout@master
-    - name: Set up Node.js
-      uses: actions/setup-node@master
-      with:
-        node-version: 12.18.3
 
     - run: npm install
     - name: build
