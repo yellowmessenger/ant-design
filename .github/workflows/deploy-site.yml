@@ -12,15 +12,13 @@ jobs:
     steps:
     - name: checkout
       uses: actions/checkout@master
-
-    - name: install
-      run: npm install --legacy-peer-deps
-      env:
-        NODE_OPTIONS: --openssl-legacy-provider
-
+    - name: Setup Node.js
+      uses: actions/setup-node@master
+      with:
+        node-version: '16'
+    - run: npm install
     - name: build
       run: npm run predeploy
-
     - name: deploy
       uses: peaceiris/actions-gh-pages@v2
       env:
