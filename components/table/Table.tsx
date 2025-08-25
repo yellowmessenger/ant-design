@@ -143,9 +143,11 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
   const tableProps = omit(props, ['className', 'style', 'columns']) as TableProps<RecordType>;
 
   const size = React.useContext(SizeContext);
-  const { locale: contextLocale = defaultLocale, renderEmpty, direction } = React.useContext(
-    ConfigContext,
-  );
+  const {
+    locale: contextLocale = defaultLocale,
+    renderEmpty,
+    direction,
+  } = React.useContext(ConfigContext);
   const mergedSize = customizeSize || size;
   const tableLocale = { ...contextLocale.Table, ...locale } as TableLocale;
   const rawData: RecordType[] = dataSource || EMPTY_LIST;
@@ -261,10 +263,10 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
     tableLocale,
     showSorterTooltip,
   });
-  const sortedData = React.useMemo(() => getSortData(rawData, sortStates, childrenColumnName), [
-    rawData,
-    sortStates,
-  ]);
+  const sortedData = React.useMemo(
+    () => getSortData(rawData, sortStates, childrenColumnName),
+    [rawData, sortStates],
+  );
 
   changeEventInfo.sorter = getSorters();
   changeEventInfo.sorterStates = sortStates;
@@ -464,24 +466,27 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
     className,
   );
 
-  const blankView = (loadingStatus: boolean | undefined): React.ReactNode => {
-    if (loadingStatus) {
-      return (
-        <>
-          <Skeleton active paragraph={false} />
-          <Skeleton active paragraph={false} />
-        </>
-      );
+  const [finalColumns, finalData] = React.useMemo(() => {
+    if (loading) {
+      // If loading, replace each column with a skeleton state
+      const columnsWithSkeleton = (mergedColumns || []).map(col => ({
+        ...col,
+        render: () => <Skeleton active paragraph={false} />,
+      }));
+
+      const emptyDataArr = Array(2).fill({});
+
+      return [columnsWithSkeleton, emptyDataArr];
     }
-    return renderEmpty('Table');
-  };
+    return [mergedColumns, pageData];
+  }, [loading, mergedColumns]);
 
   return (
     <div className={wrapperClassNames} style={style}>
       {topPaginationNode}
       <RcTable<RecordType>
         {...tableProps}
-        columns={mergedColumns}
+        columns={finalColumns}
         direction={direction}
         expandable={mergedExpandable}
         prefixCls={prefixCls}
@@ -491,10 +496,10 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
           [`${prefixCls}-bordered`]: bordered,
           [`${prefixCls}-empty`]: rawData.length === 0,
         })}
-        data={!loading ? pageData : []}
+        data={finalData}
         rowKey={getRowKey}
         rowClassName={internalRowClassName}
-        emptyText={(locale && !loading && locale.emptyText) || blankView(loading)}
+        emptyText={(locale && !loading && locale.emptyText) || renderEmpty('Table')}
         // Internal
         internalHooks={INTERNAL_HOOKS}
         internalRefs={internalRefs as any}
