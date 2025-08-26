@@ -49,13 +49,11 @@
   cursor: pointer;
 
   .@{radio-prefix-cls}-wrapper:hover &,
-  &:hover .@{radio-inner-prefix-cls},
+  &:hover .@{radio-inner-prefix-cls} {
+    border-color: #18171c;
+  }
   &-input:focus + .@{radio-inner-prefix-cls} {
     border-color: @radio-dot-color;
-  }
-
-  &-input:focus + .@{radio-inner-prefix-cls} {
-    box-shadow: @radio-focus-shadow;
   }
 
   &-checked::after {
