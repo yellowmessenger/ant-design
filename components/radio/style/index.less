@@ -49,13 +49,11 @@
   cursor: pointer;
 
   .@{radio-prefix-cls}-wrapper:hover &,
-  &:hover .@{radio-inner-prefix-cls},
+  &:hover .@{radio-inner-prefix-cls} {
+    border-color: #18171c;
+  }
   &-input:focus + .@{radio-inner-prefix-cls} {
     border-color: @radio-dot-color;
-  }
-
-  &-input:focus + .@{radio-inner-prefix-cls} {
-    box-shadow: @radio-focus-shadow;
   }
 
   &-checked::after {
@@ -198,7 +196,6 @@ span.@{radio-prefix-cls} + * {
   }
 
   &:first-child {
-    border-left: @border-width-base @border-style-base @border-color-base;
     border-radius: 10px;
   }
 
@@ -212,7 +209,8 @@ span.@{radio-prefix-cls} + * {
 
   &:hover {
     position: relative;
-    color: @radio-dot-color;
+    color: #605D6F;
+    background-color: #F9F9FA;
   }
 
   &:focus-within {
@@ -258,14 +256,10 @@ span.@{radio-prefix-cls} + * {
         background-color: @radio-button-checked-bg;
       }
     }
-
-    &:focus-within {
-      box-shadow: @radio-button-focus-shadow;
-    }
   }
 
   .@{radio-group-prefix-cls}-solid &-checked:not(&-disabled) {
-    color: @radio-solid-checked-color;
+    color: #18171C;
     background: @radio-button-checked-bg;
     border-color: @radio-button-checked-bg;
     &:hover {
@@ -277,9 +271,6 @@ span.@{radio-prefix-cls} + * {
       color: #18171C;
       background: @radio-button-checked-bg;
       border-color: @radio-button-checked-bg;
-    }
-    &:focus-within {
-      box-shadow: @radio-button-focus-shadow;
     }
   }
 

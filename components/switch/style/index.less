@@ -26,16 +26,17 @@
 
   &:focus {
     outline: 0;
-    box-shadow: 0 0 0 2px fade(@disabled-color, 10%);
   }
 
-  &-checked:focus {
-    box-shadow: 0 0 0 2px fade(@switch-color, 20%);
-  }
-
-  &:focus:hover {
+  &:focus,
+  &:hover {
     box-shadow: none;
     color: @switch-hover-color;
+    border-color: @switch-hover-color;
+
+    .@{switch-prefix-cls}-handle::before {
+      background-color: @switch-hover-color;
+    }
   }
 
   &-checked {
