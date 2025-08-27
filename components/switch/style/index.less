@@ -31,7 +31,6 @@
   &:focus,
   &:hover {
     box-shadow: none;
-    color: @switch-hover-color;
     border-color: @switch-hover-color;
 
     .@{switch-prefix-cls}-handle::before {
@@ -41,6 +40,12 @@
 
   &-checked {
     background-color: @switch-color;
+  }
+
+  &-checked:hover {
+    border-color: #2d1f86 !important;
+    box-shadow: none;
+    background-color: #2d1f86 !important;
   }
 
   &-loading,
