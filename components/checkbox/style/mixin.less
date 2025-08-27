@@ -123,6 +123,15 @@
       border-color: @table-checkbox-background;
     }
   }
+  .@{checkbox-prefix-cls}-checked:hover {
+    .@{checkbox-inner-prefix-cls} {
+      border-color: #2d1f86;
+      background-color: #2d1f86;
+    }
+  }
+  .@{checkbox-prefix-cls}-checked::after {
+    border-color: #2d1f86;
+  }
 
   .@{checkbox-prefix-cls}-disabled {
     cursor: not-allowed;

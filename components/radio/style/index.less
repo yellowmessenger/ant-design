@@ -133,6 +133,15 @@
   }
 }
 
+.@{radio-prefix-cls}-checked:hover {
+  .@{radio-inner-prefix-cls} {
+    border-color: #2d1f86;
+    &::after {
+      background-color: #2d1f86;
+    }
+  }
+}
+
 .@{radio-prefix-cls}-disabled {
   .@{radio-inner-prefix-cls} {
     background-color: @input-disabled-bg;
