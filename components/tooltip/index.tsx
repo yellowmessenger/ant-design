@@ -82,8 +82,10 @@ const PresetColorRegex = new RegExp(`^(${PresetColorTypes.join('|')})(-inverse)?
 // https://github.com/react-component/tooltip/issues/18
 function getDisabledCompatibleChildren(element: React.ReactElement<any>, prefixCls: string) {
   const elementType = element.type as any;
+
   if (
-    (elementType.__ANT_BUTTON === true ||
+    (elementType.__YA_BUTTON === true ||
+      elementType.__ANT_BUTTON === true ||
       elementType.__ANT_SWITCH === true ||
       elementType.__ANT_CHECKBOX === true ||
       element.type === 'button') &&
@@ -128,9 +130,11 @@ function getDisabledCompatibleChildren(element: React.ReactElement<any>, prefixC
 }
 
 const Tooltip = React.forwardRef<unknown, TooltipProps>((props, ref) => {
-  const { getPopupContainer: getContextPopupContainer, getPrefixCls, direction } = React.useContext(
-    ConfigContext,
-  );
+  const {
+    getPopupContainer: getContextPopupContainer,
+    getPrefixCls,
+    direction,
+  } = React.useContext(ConfigContext);
 
   const [visible, setVisible] = React.useState(!!props.visible || !!props.defaultVisible);
 
