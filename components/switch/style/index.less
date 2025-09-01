@@ -17,7 +17,7 @@
   height: @switch-height;
   line-height: @switch-height;
   vertical-align: middle;
-  background-color: @disabled-color;
+  background-color: #00000040;
   border: 0;
   border-radius: 100px;
   cursor: pointer;
@@ -28,24 +28,8 @@
     outline: 0;
   }
 
-  &:focus,
-  &:hover {
-    box-shadow: none;
-    border-color: @switch-hover-color;
-
-    .@{switch-prefix-cls}-handle::before {
-      background-color: @switch-hover-color;
-    }
-  }
-
   &-checked {
     background-color: @switch-color;
-  }
-
-  &-checked:hover {
-    border-color: #2d1f86 !important;
-    box-shadow: none;
-    background-color: #2d1f86 !important;
   }
 
   &-loading,
@@ -133,6 +117,23 @@
     line-height: @switch-sm-height;
     background-color: @switch-bg;
     border: 2px solid @switch-small-border;
+
+    &:focus,
+    &:hover {
+      box-shadow: none;
+      border-color: @switch-hover-color;
+
+      .@{switch-prefix-cls}-handle::before {
+        background-color: @switch-hover-color;
+      }
+    }
+
+
+    &-checked:hover {
+      border-color: #2d1f86 !important;
+      box-shadow: none;
+      background-color: #2d1f86 !important;
+    }
 
     .@{switch-prefix-cls}-inner {
       margin: 0 @switch-sm-inner-margin-min 0 @switch-sm-inner-margin-max;
