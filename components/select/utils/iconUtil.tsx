@@ -1,10 +1,10 @@
 import * as React from 'react';
-import CaretDownOutlined from '@ant-design/icons/CaretDownOutlined';
 import LoadingOutlined from '@ant-design/icons/LoadingOutlined';
 import CheckOutlined from '@ant-design/icons/CheckOutlined';
 import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
 import SearchOutlined from '@ant-design/icons/SearchOutlined';
+import { CaretDownOutlined } from '../../_util/caretIcons';
 
 export default function getIcons({
   suffixIcon,

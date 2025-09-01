@@ -1,7 +1,5 @@
 import * as React from 'react';
 import classNames from 'classnames';
-import CaretDownOutlined from '@ant-design/icons/CaretDownOutlined';
-import CaretUpOutlined from '@ant-design/icons/CaretUpOutlined';
 import {
   TransformColumns,
   ColumnsType,
@@ -16,6 +14,7 @@ import {
 } from '../interface';
 import Tooltip from '../../tooltip';
 import { getColumnKey, getColumnPos, renderColumnTitle } from '../util';
+import { CaretDownOutlined, CaretUpOutlined } from '../../_util/caretIcons';
 
 const ASCEND = 'ascend';
 const DESCEND = 'descend';

@@ -1,12 +1,11 @@
 import * as React from 'react';
 import classNames from 'classnames';
 import RcInputNumber from 'rc-input-number';
-import CaretUpOutlined from '@ant-design/icons/CaretUpOutlined';
-import CaretDownOutlined from '@ant-design/icons/CaretDownOutlined';
 
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import { Omit } from '../_util/type';
 import SizeContext, { SizeType } from '../config-provider/SizeContext';
+import { CaretDownOutlined, CaretUpOutlined } from '../_util/caretIcons';
 
 // omitting this attrs because they conflicts with the ones defined in InputNumberProps
 export type OmitAttrs = 'defaultValue' | 'onChange' | 'size';
