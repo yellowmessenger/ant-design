@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[295],{3429:function(e,o){e.exports={content:["article"],meta:{category:"Global Styles",order:6,title:"Shadow",skip:!0,filename:"docs/spec/shadow.en-US.md"},toc:["ul"]}}}]);
