@@ -463,13 +463,21 @@
 @input-height-base: @height-base;
 @input-height-lg: @height-lg;
 @input-height-sm: @height-sm;
-@input-padding-horizontal: 16px;
-@input-padding-horizontal-base: 16px;
-@input-padding-horizontal-sm: 16px;
-@input-padding-horizontal-lg: 16px;
-@input-padding-vertical-base: 5px;
-@input-padding-vertical-sm: 5px;
-@input-padding-vertical-lg: 5px;
+@input-padding-horizontal: @control-padding-horizontal - 1px;
+@input-padding-horizontal-base: @input-padding-horizontal;
+@input-padding-horizontal-sm: @control-padding-horizontal-sm - 1px;
+@input-padding-horizontal-lg: @input-padding-horizontal;
+@input-padding-vertical-base: max(
+  round((@input-height-base - @font-size-base * @line-height-base) / 2 * 10) / 10 -
+    @border-width-base,
+  3px
+);
+@input-padding-vertical-sm: max(
+  round((@input-height-sm - @font-size-base * @line-height-base) / 2 * 10) / 10 - @border-width-base,
+  0
+);
+@input-padding-vertical-lg: ceil((@input-height-lg - @font-size-lg * @line-height-base) / 2 * 10) /
+  10 - @border-width-base;
 @input-placeholder-color: #9390a2;
 @input-color: @charcoal-base;
 @input-icon-color: @input-color;
@@ -616,6 +624,7 @@
 @modal-footer-border-width: @border-width-base;
 @modal-mask-bg: #00000050;
 @modal-confirm-body-padding: 32px 32px 24px;
+@modal-footer-button-border-radius: 10px;
 
 // Progress
 // --
