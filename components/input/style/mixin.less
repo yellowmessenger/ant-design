@@ -33,10 +33,6 @@
   border-right-width: @border-width-base !important;
 }
 
-.opacity() {
-  opacity: 0.38;
-}
-
 .disabled() {
   color: @input-disabled-color;
   background-color: @input-disabled-bg;
@@ -76,12 +72,10 @@
 
   &-disabled {
     .disabled();
-    .opacity();
   }
 
   &[disabled] {
     .disabled();
-    .opacity();
   }
 
   &[readOnly] {
