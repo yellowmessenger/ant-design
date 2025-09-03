@@ -387,8 +387,18 @@
     }
 
     .@{picker-prefix-cls}-cell {
-      &-disabled .@{picker-cell-inner-cls} {
-        background: @picker-basic-cell-disabled-bg;
+      &-disabled {
+        .@{picker-cell-inner-cls} {
+          background: @picker-basic-cell-disabled-bg;
+        }
+
+        &.@{picker-prefix-cls}-cell-range-start,
+        &.@{picker-prefix-cls}-cell-range-end {
+          .@{picker-cell-inner-cls} {
+            color: #fff;
+            background: #5c43fd;
+          }
+        }
       }
     }
   }
