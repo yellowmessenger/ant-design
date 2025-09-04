@@ -95,7 +95,7 @@
   }
 
   .@{ant-prefix}-modal-content {
-    border-radius: 4px;
+    border-radius: @modal-border-radius;
   }
 
   .@{confirm-prefix-cls}-title {
@@ -113,7 +113,7 @@
     float: none;
     padding: 10px 16px;
     background: #f8f8f8;
-    border-radius: 0px 0px @border-radius-base @border-radius-base;
+    border-radius: 0px 0px @modal-border-radius @modal-border-radius;
     box-shadow: 0 -1px 0 #e1e1e1;
 
     button {

@@ -15,7 +15,7 @@
     text-align: center;
     background: @calendar-bg;
     border: @border-width-base @border-style-base @picker-border-color;
-    border-radius: @border-radius-base;
+    border-radius: @date-picker-border-radius;
     outline: none;
 
     &-focused {
@@ -182,7 +182,9 @@
 
     // >>> Hover
     &:hover:not(&-in-view),
-    &:hover:not(&-selected):not(&-range-start):not(&-range-end):not(&-range-hover-start):not(&-range-hover-end) {
+    &:hover:not(&-selected):not(&-range-start):not(&-range-end):not(&-range-hover-start):not(
+        &-range-hover-end
+      ) {
       .@{cellClassName} {
         background: @picker-basic-cell-hover-color;
       }
