@@ -14,7 +14,7 @@
   margin: 0;
   padding: 0;
   border: @border-width-base @border-style-base @input-number-border-color;
-  border-radius: @border-radius-base;
+  border-radius: @input-number-border-radius;
 
   &-handler {
     position: relative;
@@ -86,7 +86,7 @@
     text-align: left;
     background-color: transparent;
     border: 0;
-    border-radius: @border-radius-base;
+    border-radius: @input-number-border-radius;
     outline: 0;
     transition: all 0.3s linear;
     -moz-appearance: textfield !important;
@@ -125,7 +125,7 @@
     height: 100%;
     background: @input-number-handler-bg;
     border-left: @border-width-base @border-style-base @input-number-handler-border-color;
-    border-radius: 0 @border-radius-base @border-radius-base 0;
+    border-radius: 0 @input-number-border-radius @input-number-border-radius 0;
     transition: opacity 0.24s linear 0.1s;
 
     // Fix input number inside Menu makes icon too large

@@ -29,7 +29,7 @@
     position: relative;
     display: inline-block;
     background-color: @cascader-bg;
-    border-radius: @border-radius-base;
+    border-radius: @cascader-border-radius;
     outline: 0;
     cursor: pointer;
     transition: color 0.3s;
@@ -131,7 +131,7 @@
     font-size: @cascader-dropdown-font-size;
     white-space: nowrap;
     background: @cascader-menu-bg;
-    border-radius: @border-radius-base;
+    border-radius: @cascader-border-radius;
     box-shadow: @box-shadow-base;
 
     ul,
@@ -175,15 +175,15 @@
     -ms-overflow-style: -ms-autohiding-scrollbar; // https://github.com/ant-design/ant-design/issues/11857
 
     &:first-child {
-      border-radius: @border-radius-base 0 0 @border-radius-base;
+      border-radius: @cascader-border-radius 0 0 @cascader-border-radius;
     }
     &:last-child {
       margin-right: -1px;
       border-right-color: transparent;
-      border-radius: 0 @border-radius-base @border-radius-base 0;
+      border-radius: 0 @cascader-border-radius @cascader-border-radius 0;
     }
     &:only-child {
-      border-radius: @border-radius-base;
+      border-radius: @cascader-border-radius;
     }
   }
   &-menu-item {

@@ -56,16 +56,16 @@
       border-right: none;
       border-left: @border-width-base @border-style-base @border-color-split;
       &:first-child {
-        border-radius: 0 @border-radius-base @border-radius-base 0;
+        border-radius: 0 @cascader-border-radius @cascader-border-radius 0;
       }
       &:last-child {
         margin-right: 0;
         margin-left: -1px;
         border-left-color: transparent;
-        border-radius: @border-radius-base 0 0 @border-radius-base;
+        border-radius: @cascader-border-radius 0 0 @cascader-border-radius;
       }
       &:only-child {
-        border-radius: @border-radius-base;
+        border-radius: @cascader-border-radius;
       }
     }
   }
